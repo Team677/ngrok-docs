@@ -1,14 +1,26 @@
----
-hide_table_of_contents: true
-displayed_sidebar: docs
----
-
-import ErrorDetails from "/src/components/ErrorDetails";
-
-# ERR_NGROK_3200
-
-### Message
-
-Tunnel `HOSTNAME` not found
-
-<ErrorDetails error="err_ngrok_3200" />
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue</title>
+</head>
+<body>
+    <h1>Bienvenue sur notre site!</h1>
+    
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nom = htmlspecialchars($_POST['nom']);
+        echo "<h2>Bonjour, $nom!</h2>";
+    } else {
+    ?>
+        <form method="post" action="">
+            <label for="nom">Entrez votre nom :</label>
+            <input type="text" id="nom" name="nom" required>
+            <input type="submit" value="Soumettre">
+        </form>
+    <?php
+    }
+    ?>
+</body>
+</html>
